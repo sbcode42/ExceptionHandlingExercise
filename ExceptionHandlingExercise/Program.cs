@@ -8,6 +8,37 @@ namespace ExceptionHandlingExercise
     {
         static void Main(string[] args)
         {
+
+            char[] arr = new char[9] { '4', '6', '3', '2', '5', '7', 'a', 'b', 'c' };
+
+            List<int> numbers = new List<int>();
+
+            string str = string.Empty;
+
+            foreach (var character in arr)
+            {
+                try
+                {
+                    str = character.ToString();
+                    int num = int.Parse(str);
+                    numbers.Add(num);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Unable to Parse '{character}'");
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            Console.WriteLine();
+            Console.Write("Numbers:");
+
+            foreach (var num in numbers)
+            {
+                Console.Write($"{num} ");
+            };
+
+            
             // -----------------------------------------------------------------------------
             // First create an char[], it must contain 6 numbers and 3 letters - name it arr
             // Create a list called numbers that will hold integers
